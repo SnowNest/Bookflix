@@ -1,0 +1,20 @@
+page-login {
+
+    .marco{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+    }
+
+    .marco button{
+        background-color: #000000;
+    }
+
+    .icono{
+        width: 30px;
+        padding: 5px;
+    }
+
+}
