@@ -32,9 +32,9 @@ export class LoginPage {
 
     loading.present();
     
-    this._usuario.logIn().then(valido => {
+    this._usuario.logIn().then( _dataUsuario => {
 
-      console.log(valido);
+      console.log(_dataUsuario);
       loading.dismiss();
 
     }).catch(error => {
@@ -48,7 +48,7 @@ export class LoginPage {
       }).present();
 
       console.log("ERROR en logIn: "+JSON.stringify(error));
-      
+
     });
   }
 

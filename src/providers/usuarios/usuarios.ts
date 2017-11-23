@@ -14,7 +14,7 @@ export class UsuariosProvider {
 
   }
 
-  logIn(){
+  logIn() {
 
     let promesa = new Promise((resolve, reject) => {
 
@@ -22,17 +22,8 @@ export class UsuariosProvider {
 
         this.afDb.object("/db_users/" + result.additionalUserInfo.profile.id).update(result.additionalUserInfo.profile);
 
-        if (result.additionalUserInfo.isNewUser == true) {
+        resolve(result.additionalUserInfo.isNewUser);
 
-          //aqui va el registro
-          resolve(result.additionalUserInfo.profile);
-
-        } else {
-          
-          //aqui va inicio de sesión
-          resolve(result.additionalUserInfo.profile);
-
-        }
       });
     }).catch(error => console.log("Error en promesa Service: " + JSON.stringify(error)));
 
