@@ -1,14 +1,21 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Bookflix
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="card-background-page">
+
+  <ion-item class="text" *ngFor="let item of items | async">
+      
+    <ion-card (click)="abrir(item.link)">
+      <img src="{{item.img}}" />
+      <div class="card-title">{{item.titulo}}</div>
+      <div class="card-subtitle">{{item.autor}}</div>
+    </ion-card>
+
+  </ion-item>
+
 </ion-content>

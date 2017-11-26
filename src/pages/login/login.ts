@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 
 import { UsuariosProvider } from '../../providers/usuarios/usuarios';
+import { HomePage } from '../../pages/home/home';
 
 @IonicPage()
 @Component({
@@ -34,7 +35,8 @@ export class LoginPage {
     
     this._usuario.logIn().then( _dataUsuario => {
 
-      console.log(_dataUsuario);
+      this.navCtrl.push(HomePage);
+      
       loading.dismiss();
 
     }).catch(error => {

@@ -15,6 +15,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { UsuariosProvider } from '../providers/usuarios/usuarios';
 
 import { IonicStorageModule } from '@ionic/storage';
+import { DocumentViewer } from '@ionic-native/document-viewer';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDd_aDgYgXG1-FN5Mk_5rJMdESW92OVH0I",
@@ -50,7 +51,8 @@ export const firebaseConfig = {
     SplashScreen,
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsuariosProvider
+    UsuariosProvider,
+    DocumentViewer
   ]
 })
 export class AppModule {}
