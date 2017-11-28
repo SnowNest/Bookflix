@@ -1,0 +1,20 @@
+<ion-content padding>
+
+  <ion-list>
+    <ion-item class="text" *ngFor="let item of items | async">
+      
+        {{item | json}}
+
+      <ion-card>
+        <img src="{{item.picture}}" />
+        <div class="card-title">{{item.name}}</div>
+        <div class="card-subtitle">{{item.email}}</div>
+      </ion-card>
+
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button full color="danger">Cerrar sesion</button>
+
+</ion-content>

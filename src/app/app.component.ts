@@ -3,8 +3,9 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+//import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { TabsPage } from '../pages/tabs/tabs';
 
 import { UsuariosProvider } from '../providers/usuarios/usuarios';
 
@@ -22,7 +23,7 @@ export class MyApp {
       this._usuarioProvider.obtener_storage().then(usr => {
         
         if(usr){
-          this.rootPage = HomePage;
+          this.rootPage = TabsPage;
         }else{
           this.rootPage = LoginPage
         }        

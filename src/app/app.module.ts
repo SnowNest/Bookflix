@@ -7,6 +7,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { TabsPage } from '../pages/tabs/tabs';
+import { PerfilPage } from '../pages/perfil/perfil';
+import { AboutPage } from '../pages/about/about';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
@@ -30,7 +33,10 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    TabsPage,
+    PerfilPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,10 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    TabsPage,
+    PerfilPage,
+    AboutPage
   ],
   providers: [
     StatusBar,
