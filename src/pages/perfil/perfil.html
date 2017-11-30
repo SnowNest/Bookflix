@@ -5,16 +5,15 @@
       
         {{item | json}}
 
-      <ion-card>
+      <ion-card >
         <img src="{{item.picture}}" />
-        <div class="card-title">{{item.name}}</div>
-        <div class="card-subtitle">{{item.email}}</div>
+        <div class="card-title"></div>
+        <div class="card-subtitle"></div>
       </ion-card>
 
     </ion-item>
-
   </ion-list>
 
-  <button ion-button full color="danger">Cerrar sesion</button>
+  <button ion-button full color="danger" (click) = "logOut()">Cerrar sesion</button>
 
 </ion-content>

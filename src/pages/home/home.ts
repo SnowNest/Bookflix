@@ -14,7 +14,7 @@ export class HomePage {
 
   items: Observable<any[]>;
 
-  constructor(public navCtrl: NavController, private afDB: AngularFireDatabase, private document: DocumentViewer) {
+  constructor(public navCtrl: NavController, afDB: AngularFireDatabase, private document: DocumentViewer) {
 
     this.items = afDB.list('db_books').valueChanges();
 

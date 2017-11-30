@@ -37,6 +37,7 @@ export class UsuariosProvider {
     return promesa;
   }
 
+
   actualizarUsuario(usr){
     console.log(usr);
 
@@ -67,5 +68,18 @@ export class UsuariosProvider {
       }      
     }).catch(error => console.log("Error en promesa Service: " + JSON.stringify(error)));
     return promesa;
+  }
+
+  borrar_storage(){
+    let promesa = new Promise((resolve, reject) => {
+      if(this.plt.is("cordova")){
+        this.storage.remove("user");
+      }else{
+        localStorage.clear();
+      }
+      resolve();
+    }).catch(error => console.log("Error en promesa Service: " + JSON.stringify(error)));
+    return promesa;
+
   }
 }

@@ -5,6 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
 import { UsuariosProvider } from '../../providers/usuarios/usuarios';
+import { MyApp } from '../../app/app.component';
 
 
 @IonicPage()
@@ -33,8 +34,7 @@ export class PerfilPage {
 
     this._usuarioProvider.obtener_storage().then(usr => {
 
-      this.items = afDB.list('db_users/' + usr).valueChanges();
-      console.log(this.items);
+      this.items = afDB.list('db_users/' + usr ).valueChanges();
       loading.dismiss();
 
 
@@ -44,15 +44,53 @@ export class PerfilPage {
 
       this.toastCtrl.create({
 
-        message: 'ERROR de inicio se sesión',
+        message: 'ERROR en obtener el perfil',
         duration: 1500
+
       }).present();
 
-      console.log("ERROR en logIn: " + JSON.stringify(error));
+      console.log("ERROR en perfil: " + JSON.stringify(error));
 
     });
 
   }
+
+  logOut(){
+
+    let loading = this.loadingCtrl.create({
+      
+            content: "Cargando perfil..."
+      
+          });
+      
+          loading.present();
+      
+          this._usuarioProvider.borrar_storage().then(usr => {
+
+
+            this.navCtrl.push(MyApp);
+      
+            
+            loading.dismiss();
+      
+      
+          }).catch(error => {
+      
+            loading.dismiss();
+      
+            this.toastCtrl.create({
+      
+              message: 'ERROR en obtener el perfil',
+              duration: 1500
+      
+            }).present();
+      
+            console.log("ERROR en perfil: " + JSON.stringify(error));
+      
+          });
+
+  }
+  
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad PerfilPage');
