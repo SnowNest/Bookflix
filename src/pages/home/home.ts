@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
-import { DocumentViewer } from '@ionic-native/document-viewer';
+import { LectorPage } from '../lector/lector';
 
 @Component({
   selector: 'page-home',
@@ -14,7 +14,7 @@ export class HomePage {
 
   items: Observable<any[]>;
 
-  constructor(public navCtrl: NavController, afDB: AngularFireDatabase, private document: DocumentViewer) {
+  constructor(public navCtrl: NavController, afDB: AngularFireDatabase) {
 
     this.items = afDB.list('db_books').valueChanges();
 
@@ -25,7 +25,7 @@ export class HomePage {
   }
 
   abrir(url){
-    this.document.viewDocument(url, 'application/pdf', this.options);
+    this.navCtrl.push(LectorPage, {"url":url});
   }
 
 }
