@@ -2,25 +2,10 @@
   <ion-navbar>
     <ion-title>
       Bookflix
-
-      <button ion-button icon-only right color="light">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-title>  
-    
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content class="card-background-page">
-
-  <ion-item class="text" *ngFor="let item of items | async">
-      
-    <ion-card (click)="abrir(item.link)">
-      <img src="{{item.img}}" />
-      <div class="card-title">{{item.titulo}}</div>
-      <div class="card-subtitle">{{item.autor}}</div>
-    </ion-card>
-
-  </ion-item>
-
+<ion-content >
+ <img padding  (click)="abrir(item.link)" *ngFor="let item of items | async" src="{{item.img}}" class="img" />
 </ion-content>
